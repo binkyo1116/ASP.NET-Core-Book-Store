@@ -1,0 +1,73 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model IEnumerable<BookstoreProject.Models.Category>
+
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+
+<section class="static about-sec">
+    <div class="container">
+        <h1>@localizer["Title"]</h1>
+        <form asp-controller="Categories" asp-action="Create" style=" margin-bottom: 10px;" method="get">
+            <button type="submit" class="btn btn-primary">@localizer["AddCategory"]</button>
+        </form>
+        <table id="categoriesTable" class="table table-striped table-bordered" style="width:100%;">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Active)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        @if (item.Active == true)
+                        {
+                            <td><span class="circle green"></span></td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-window-close"></i></a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td><span class="circle red"></span></td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-check-square"></i></a>
+                            </td>
+
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            var currentCulture = $('#currentCalture').text();
+            if (currentCulture == "en-US") {
+                $('#categoriesTable').DataTable();
+            } else {
+                $('#categoriesTable').DataTable({
+                    language: TurkishLanguageRule
+                });
+            }
+        });
+    </script>
+}
+

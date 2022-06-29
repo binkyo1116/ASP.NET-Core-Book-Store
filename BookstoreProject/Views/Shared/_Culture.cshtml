@@ -1,0 +1,28 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> LocOptions
+
+@{ var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+                var cultureList = LocOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = x.Name }).ToList(); }
+<div>
+    <form id="cultureForm">
+        <select id="culture" name="culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" onchange="changeLang()">
+        </select>
+    </form>
+</div>
+
+<script>
+    function changeLang() {
+        var data = {
+            culture: $('#culture').val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("LangSetting","Home")",
+            data: data,
+            success: function (data) {
+                window.location.reload();
+            }
+        });
+    }
+</script>

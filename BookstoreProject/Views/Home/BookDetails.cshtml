@@ -1,0 +1,122 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+
+@model IEnumerable<Book>
+@{var count = 0; var book1 = Model.Last();}
+
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+
+<section class="product-sec">
+    <div class="container">
+        <h1>@book1.Name</h1>
+        <div class="row">
+            <div class="col-md-6 slider-sec">
+                <!-- main slider carousel -->
+                <div id="myCarousel" class="carousel slide">
+                    <!-- main slider carousel items -->
+                    <div class="carousel-inner">
+                        <div class="active item carousel-item" data-slide-number="0">
+                            <img src="~/images/@book1.MainPhoto" style="height:100%;width:100%;" class="img-fluid">
+                        </div>
+                        <div class="item carousel-item" data-slide-number="1">
+                            <img src="~/images/@book1.SecondPhoto" style="height:100%;width:100%;" class="img-fluid">
+                        </div>
+                        <div class="item carousel-item" data-slide-number="2">
+                            <img src="~/images/@book1.ThirdPhoto" style="height:100%;width:100%;" class="img-fluid">
+                        </div>
+                    </div>
+                    <!-- main slider carousel nav controls -->
+                    <ul class="carousel-indicators list-inline">
+                        <li class="list-inline-item active" style="border-top: 0px solid transparent!important;">
+                            <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
+                                <img src="~/images/@book1.MainPhoto" style="height:100%;width:100%;" class="img-fluid">
+                            </a>
+                        </li>
+                        <li class="list-inline-item" style="border-top: 0px solid transparent!important;">
+                            <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
+                                <img src="~/images/@book1.SecondPhoto" style="height:100%;width:100%;" class="img-fluid">
+                            </a>
+                        </li>
+                        <li class="list-inline-item" style="border-top: 0px solid transparent!important;">
+                            <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
+                                <img src="~/images/@book1.ThirdPhoto" style="height:100%;width:100%;" class="img-fluid">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/main slider carousel-->
+            </div>
+            <div class="col-md-6 slider-content">
+                <p>@book1.Description</p>
+                <ul>
+                    <li>
+                        <span class="name">@localizer["Stock"]</span><span class="clm">:</span>
+                        <span class="price" style="text-decoration: none;">@book1.Stock</span>
+                    </li>
+                    <li>
+                        <span class="name">@localizer["Price"]</span><span class="clm">:</span>
+                        <span class="price">@(book1.Price * 2) @localizer["Currency"]</span>
+                    </li>
+                    <li>
+                        <span class="name">@localizer["DiscPrice"]</span><span class="clm">:</span>
+                        <span class="price final">@book1.Price @localizer["Currency"]</span>
+                    </li>
+                    <li><span class="save-cost">@localizer["Profit"] : @book1.Price @localizer["Currency"] (%50)</span></li>
+                </ul>
+                @if (book1.Stock != 0)
+                {
+                    @if (this.User.Identity.IsAuthenticated)
+                    {
+                        <form asp-controller="Home" asp-action="AddBookToBasket" method="post">
+                            <div class="btn-sec">
+                                <button name="bookId" value="@book1.Id" class="btn black">@localizer["AddBasket"]</button>
+                            </div>
+                        </form>
+                    }
+                    else
+                    {
+                        <div class="btn-sec">
+                            @localizer["AuthWarning"]
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="btn-sec">
+                        @localizer["StockStatus"]
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<section class="related-books">
+    <div class="container">
+        <div class="recomended-sec">
+            <h2>@localizer["OtherBooks"]</h2>
+            <div class="row">
+                @foreach (var book in Model)
+                {
+                    @if (count != Model.Count() - 1)
+                    {
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="item">
+                                <img src="~/images/@book.MainPhoto" style="height:150px;" class="img-responsive">
+                                <h3>@book.Name</h3>
+                                <h6><span class="price">@book.Price TL</span></h6>
+                                <div class="hover">
+                                    <span><a asp-controller="Home" asp-action="BookDetails" asp-route-searchId="@book.Id"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    count++;
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+

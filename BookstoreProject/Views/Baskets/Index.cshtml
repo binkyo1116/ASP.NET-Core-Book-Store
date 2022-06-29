@@ -1,0 +1,66 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+
+@model IEnumerable<BookstoreProject.Models.BasketItem>
+
+<section class="static about-sec">
+    <div class="container">
+        @if (TempData["SiparisMesaj"] != null)
+        {
+            <div class="row">
+                <h4>@TempData["SiparisMesaj"]</h4>
+            </div>
+            <div class="row">
+                <form asp-controller="Home" asp-action="Index">
+                    <div class="form-group">
+                        <input type="submit" value="@localizer["GoBackToHome"]" class="btn btn-block btn-primary" />
+                    </div>
+                </form>
+            </div>
+        }
+        else
+        {
+        <h2>@localizer["MyBasket"]</h2>
+            <div class="recent-book-sec">
+                <div class="row">
+                    @if (Model != null)
+                    {
+                        @if (Model.Any())
+                        {
+                            @foreach (var _basket in Model)
+                            {
+                                <div class="col-md-3">
+                                    <div class="item">
+                                        <img src="~/images/@_basket.Book.MainPhoto" class="img" />
+                                        <h3><a asp-controller="Home" asp-action="BookDetails" asp-route-searchId="@_basket.Id">@_basket.Book.Name</a></h3>
+                                        <h6><span class="price">@_basket.Book.Price @localizer["Currency"]</span> / <a asp-controller="Baskets" asp-action="removeFromBasket" asp-route-bookId="@_basket.Book.Id">@localizer["OutOfMyBasket"]</a></h6>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                    else
+                    {
+                <p style="margin-left:50px;">@localizer["BasketLooksEmpty"]</p>
+                    }
+                </div>
+            </div>
+            @if (Model != null)
+            {
+                @if (Model.Any())
+                {
+                    <div class="row">
+                        <form asp-controller="Baskets" asp-action="BuyBooks" method="post">
+                            <div class="btn-sec">
+                                <span>@localizer["TotalPrice"]<span>@ViewData["ToplamFiyat"]</span></span>
+                                <button name="basketId" value="@ViewData["BasketID"]" style="margin-left : 20px;" class="btn black">@localizer["CompleteTheOrder"]</button>
+                            </div>
+                        </form>
+                    </div>
+                }
+            }
+        }
+    </div>
+</section>

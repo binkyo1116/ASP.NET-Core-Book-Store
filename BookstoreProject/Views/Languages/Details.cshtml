@@ -1,0 +1,53 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model BookstoreProject.Models.Language
+
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+<div class="container">
+    <h1>@localizer["Title"]</h1>
+
+    <div>
+
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Active)
+            </dt>
+            @if (Model.Active == true)
+            {
+                <dt class="col-sm-10">
+                    <span class="circle green"></span>
+                </dt>
+            }
+            else
+            {
+                <dt class="col-sm-10">
+                    <span class="circle red"></span>
+                </dt>
+            }
+        </dl>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <form asp-action="Edit" method="GET" asp-route-id="@Model.Id">
+                <div class="form-group">
+                    <input type="submit" value="@localizer["Edit"]" class="btn btn-block btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <form asp-action="Index">
+                <div class="form-group">
+                    <input type="submit" value="@localizer["GoBackToList"]" class="btn btn-block btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

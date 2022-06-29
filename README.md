@@ -1,250 +1,41 @@
-Contribution: 2018-08-20 20:00
-
-Contribution: 2018-08-20 20:01
-
-Contribution: 2018-08-20 20:02
-
-Contribution: 2018-08-20 20:03
-
-Contribution: 2018-08-20 20:04
-
-Contribution: 2018-08-20 20:05
-
-Contribution: 2018-08-20 20:06
-
-Contribution: 2018-08-24 20:00
-
-Contribution: 2018-08-24 20:01
-
-Contribution: 2018-08-24 20:02
-
-Contribution: 2018-08-29 20:00
-
-Contribution: 2018-08-29 20:01
-
-Contribution: 2018-08-29 20:02
-
-Contribution: 2018-08-29 20:03
-
-Contribution: 2018-08-29 20:04
-
-Contribution: 2018-08-29 20:05
-
-Contribution: 2018-08-29 20:06
-
-Contribution: 2018-08-29 20:07
-
-Contribution: 2018-08-31 20:00
-
-Contribution: 2018-08-31 20:01
-
-Contribution: 2018-09-01 20:00
-
-Contribution: 2018-09-01 20:01
-
-Contribution: 2018-09-04 20:00
-
-Contribution: 2018-09-04 20:01
-
-Contribution: 2018-09-04 20:02
-
-Contribution: 2018-09-04 20:03
-
-Contribution: 2018-09-04 20:04
-
-Contribution: 2018-09-04 20:05
-
-Contribution: 2018-09-11 20:00
-
-Contribution: 2018-09-11 20:01
-
-Contribution: 2018-09-11 20:02
-
-Contribution: 2018-09-13 20:00
-
-Contribution: 2018-09-13 20:01
-
-Contribution: 2018-09-13 20:02
-
-Contribution: 2018-09-17 20:00
-
-Contribution: 2018-09-17 20:01
-
-Contribution: 2018-09-19 20:00
-
-Contribution: 2018-09-19 20:01
-
-Contribution: 2018-09-19 20:02
-
-Contribution: 2018-09-19 20:03
-
-Contribution: 2018-09-19 20:04
-
-Contribution: 2018-09-19 20:05
-
-Contribution: 2018-09-22 20:00
-
-Contribution: 2018-09-22 20:01
-
-Contribution: 2018-09-22 20:02
-
-Contribution: 2018-09-22 20:03
-
-Contribution: 2018-09-22 20:04
-
-Contribution: 2018-09-22 20:05
-
-Contribution: 2018-09-22 20:06
-
-Contribution: 2018-10-10 20:00
-
-Contribution: 2018-10-10 20:01
-
-Contribution: 2018-10-10 20:02
-
-Contribution: 2018-10-10 20:03
-
-Contribution: 2018-10-10 20:04
-
-Contribution: 2018-10-10 20:05
-
-Contribution: 2018-10-10 20:06
-
-Contribution: 2018-10-10 20:07
-
-Contribution: 2018-10-13 20:00
-
-Contribution: 2018-10-13 20:01
-
-Contribution: 2018-10-13 20:02
-
-Contribution: 2018-10-13 20:03
-
-Contribution: 2018-10-13 20:04
-
-Contribution: 2018-10-13 20:05
-
-Contribution: 2018-10-13 20:06
-
-Contribution: 2018-10-13 20:07
-
-Contribution: 2018-10-14 20:00
-
-Contribution: 2018-10-14 20:01
-
-Contribution: 2018-10-14 20:02
-
-Contribution: 2018-10-14 20:03
-
-Contribution: 2018-10-19 20:00
-
-Contribution: 2018-10-19 20:01
-
-Contribution: 2018-10-19 20:02
-
-Contribution: 2018-10-19 20:03
-
-Contribution: 2018-10-19 20:04
-
-Contribution: 2018-10-20 20:00
-
-Contribution: 2018-10-23 20:00
-
-Contribution: 2018-10-23 20:01
-
-Contribution: 2018-10-25 20:00
-
-Contribution: 2018-10-25 20:01
-
-Contribution: 2018-10-25 20:02
-
-Contribution: 2018-10-25 20:03
-
-Contribution: 2018-10-25 20:04
-
-Contribution: 2018-10-25 20:05
-
-Contribution: 2018-10-25 20:06
-
-Contribution: 2018-10-25 20:07
-
-Contribution: 2018-11-01 20:00
-
-Contribution: 2018-11-01 20:01
-
-Contribution: 2018-11-01 20:02
-
-Contribution: 2018-11-01 20:03
-
-Contribution: 2018-11-02 20:00
-
-Contribution: 2018-11-02 20:01
-
-Contribution: 2018-11-02 20:02
-
-Contribution: 2018-11-02 20:03
-
-Contribution: 2018-11-02 20:04
-
-Contribution: 2018-11-11 20:00
-
-Contribution: 2018-11-11 20:01
-
-Contribution: 2018-11-11 20:02
-
-Contribution: 2018-11-11 20:03
-
-Contribution: 2018-11-25 20:00
-
-Contribution: 2018-12-03 20:00
-
-Contribution: 2018-12-03 20:01
-
-Contribution: 2018-12-03 20:02
-
-Contribution: 2018-12-03 20:03
-
-Contribution: 2018-12-03 20:04
-
-Contribution: 2018-12-03 20:05
-
-Contribution: 2018-12-07 20:00
-
-Contribution: 2018-12-07 20:01
-
-Contribution: 2018-12-07 20:02
-
-Contribution: 2018-12-07 20:03
-
-Contribution: 2018-12-07 20:04
-
-Contribution: 2018-12-07 20:05
-
-Contribution: 2018-12-07 20:06
-
-Contribution: 2018-12-07 20:07
-
-Contribution: 2018-12-15 20:00
-
-Contribution: 2018-12-15 20:01
-
-Contribution: 2018-12-15 20:02
-
-Contribution: 2018-12-15 20:03
-
-Contribution: 2018-12-17 20:00
-
-Contribution: 2018-12-17 20:01
-
-Contribution: 2018-12-17 20:02
-
-Contribution: 2018-12-17 20:03
-
-Contribution: 2018-12-17 20:04
-
-Contribution: 2018-12-17 20:05
-
-Contribution: 2018-12-17 20:06
-
-Contribution: 2018-12-17 20:07
-
+# ✏️ BookStore E-commerce Application
+
+This e-commerce web application was designed as  a project for web programming lecture. Administrators have a panel where they can manage everything related to the books. Also, users register on the website and can search for books, monitor the status of their orders, and order the books they like by adding them to their baskets. Ordered books wait to be shipped from the admin panel. The development of the project was done using .NET Core, EntityFramework as an ORM tool, HTML/CSS, JavaScript and jQuery.
+
+## ⚙️ Install
+
+Clone the project to your computer.
+```
+> git clone https://github.com/burakyzn/bookstore-net-core.git
+```
+
+Open the project folder and run the entity framework update command in the CLI.
+```
+> dotnet ef database update
+```
+## 📷 Screenshots
+
+<div style="display: flex; width: 1000px; justify-content: space-evenly;">
+  <img src="https://user-images.githubusercontent.com/44683436/129563102-993b30a5-19cf-4a6d-a08d-eaa2db654f87.png" width="400px;" alt=""/>
+  <img src="https://user-images.githubusercontent.com/44683436/129563935-e2a646af-74ea-44d7-bad2-caf337b83ad7.png" width="400px;" alt=""/>
+</div>
+<div style="display: flex; width: 1000px; justify-content: space-evenly;">
+  <img src="https://user-images.githubusercontent.com/44683436/129564013-0c787d49-d1ed-4d70-914b-690c53c53902.png" width="400px;" alt=""/>
+  <img src="https://user-images.githubusercontent.com/44683436/129567268-8b5340aa-c2dd-4ba1-bff3-f16d9efa0a37.png" width="400px;" alt=""/>
+</div>
+<div style="display: flex; width: 1000px; justify-content: space-evenly;">
+  <img src="https://user-images.githubusercontent.com/44683436/129567317-a61c65e4-f977-4d5d-928f-489bb762fe27.png" width="400px;" alt=""/>
+  <img src="https://user-images.githubusercontent.com/44683436/129567763-b041b63f-9fbd-4126-9089-7b5b6ba91d87.png" width="400px;" alt=""/>
+</div>
+<div style="display: flex; width: 1000px; justify-content: space-evenly;">
+  <img src="https://user-images.githubusercontent.com/44683436/129567655-024a0b26-78a3-4b4f-afb8-7703f490695d.png" width="400px;" alt=""/>
+  <img src="https://user-images.githubusercontent.com/44683436/129567526-e7a84bbc-3ea6-48c6-8f27-4fa312f0004f.png" width="400px;" alt=""/>
+</div>
+
+## 🎯 Contributors
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/burakyazan/"><img src="https://avatars.githubusercontent.com/u/44683436?v=4s=100" width="100px;" alt=""/><br /><sub><b>Burak Yazan</b></sub></a><br /></td>
+    <td align="center"><a href="https://www.linkedin.com/in/%C5%9Fule-akta%C5%9F-4b681319b/"><img src="https://avatars.githubusercontent.com/u/64965733?v=4s=100" width="100px;" alt=""/><br /><sub><b>Şule Aktaş</b></sub></a><br /></td>
+  </tr>
+</table>

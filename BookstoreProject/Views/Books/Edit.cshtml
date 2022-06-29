@@ -1,0 +1,107 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model BookstoreProject.Models.Book
+
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+<div class="container">
+    <h1>@localizer["Title"]</h1>
+    <hr />
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <p style="margin-top:10px; color:red;">@ViewData["ErrorMessage"]</p>
+    }
+
+    <form asp-action="Edit" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Stock" class="control-label"></label>
+                    <input asp-for="Stock" class="form-control" />
+                    <span asp-validation-for="Stock" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PublishYear" class="control-label"></label>
+                    <input asp-for="PublishYear" class="form-control" />
+                    <span asp-validation-for="PublishYear" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label"></label>
+                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LanguageId" class="control-label"></label>
+                    <select asp-for="LanguageId" class="form-control" asp-items="ViewBag.LanguageId"></select>
+                    <span asp-validation-for="LanguageId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AuthorId" class="control-label"></label>
+                    <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
+                    <span asp-validation-for="AuthorId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MainPhotoFile" class="control-label"></label>
+                    <input asp-for="MainPhotoFile" class="form-control" />
+                    <span asp-validation-for="MainPhotoFile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SecondPhotoFile" class="control-label"></label>
+                    <input asp-for="SecondPhotoFile" class="form-control" />
+                    <span asp-validation-for="SecondPhotoFile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ThirdPhotoFile" class="control-label"></label>
+                    <input asp-for="ThirdPhotoFile" class="form-control" />
+                    <span asp-validation-for="ThirdPhotoFile" class="text-danger"></span>
+                </div>
+                <input style="display:none" asp-for="MainPhoto" />
+                <input style="display:none" asp-for="SecondPhoto" />
+                <input style="display:none" asp-for="ThirdPhoto" />
+                <input style="display:none" asp-for="Active" />
+                <input style="display:none" asp-for="CreateDate"/> 
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-md-8">
+                <div class="form-group">
+                    <input type="submit" value="@localizer["Save"]" class="btn btn-block btn-primary" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <form asp-action="Index">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <input type="submit" value="@localizer["GoBackToList"]" class="btn btn-block btn-primary" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

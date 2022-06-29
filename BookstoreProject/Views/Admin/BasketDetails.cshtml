@@ -1,0 +1,66 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model IEnumerable<BookstoreProject.Models.BasketItem>
+
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+
+<section class="static about-sec">
+    <div class="container">
+        <h1>@localizer["BasketDetails"]</h1>
+        <table id="orderDetailTable" class="table table-striped table-bordered" style="width:100%;">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Book.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Book.CategoryId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Book.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Book.AuthorId)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Book.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Book.Category.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Book.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Book.Author.Name)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+
+            var currentCulture = $('#currentCalture').text();
+            if (currentCulture == "en-US") {
+                $('#orderDetailTable').DataTable();
+            } else {
+                $('#orderDetailTable').DataTable({
+                    language: TurkishLanguageRule
+                });
+            }
+        });
+    </script>
+}

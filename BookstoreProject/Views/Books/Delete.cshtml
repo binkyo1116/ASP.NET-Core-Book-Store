@@ -1,0 +1,117 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model BookstoreProject.Models.Book
+
+@{
+    ViewData["Title"] = localizer["Title"];
+}
+
+<div class="container">
+    @if (Model.Active == true)
+    {
+        <h3>@localizer["ConvertToDeactive"]</h3>
+    }
+    else
+    {
+        <h3>@localizer["ConvertToActive"]</h3>
+    }
+
+    <hr />
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stock)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Stock)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PublishYear)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PublishYear)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LanguageId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Language.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AuthorId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Author.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CreateDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MainPhoto)
+            </dt>
+            <dd class="col-sm-10">
+                <img style="max-width:100px;" src="~/images/@Model.MainPhoto" class="img" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SecondPhoto)
+            </dt>
+            <dd class="col-sm-10">
+                <img style="max-width:100px;" src="~/images/@Model.SecondPhoto" class="img" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ThirdPhoto)
+            </dt>
+            <dd class="col-sm-10">
+                <img style="max-width:100px;" src="~/images/@Model.ThirdPhoto" class="img" />
+            </dd>
+        </dl>
+        <div class="row">
+            <div class="col-md-3">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    @if (Model.Active == true)
+                    {
+                        <input type="submit" value="@localizer["DeactivateButton"]" class="btn btn-block btn-danger" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="@localizer["ActivateButton"]" class="btn btn-block btn-danger" />
+                    }
+                </form>
+            </div>
+            <div class="col-md-3">
+                <form asp-action="Index">
+                    <div class="form-group">
+                        <input type="submit" value="@localizer["GoBackToList"]" class="btn btn-block btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

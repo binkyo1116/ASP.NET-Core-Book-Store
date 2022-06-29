@@ -1,0 +1,189 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UserDetails> SignInManager
+@inject UserManager<UserDetails> UserManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+
+@{
+    var currentCulture = System.Globalization.CultureInfo.CurrentCulture;
+}
+
+<!DOCTYPE html>
+<html lang="@currentCulture">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookstoreProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/tema.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <partial name="_Culture" />
+                    </div>
+                    <div class="col-md-6">
+                        <h5>@localizer["FreeShipping"]</h5>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-menu">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt="logo"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="navbar-item">
+                                <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">@localizer["MainPage"]</a>
+                            </li>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="navbar-item">
+                                        <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">@localizer["Panel"]</a>
+                                    </li>
+                                }
+                                <li class="navbar-item">
+                                    <a asp-area="" asp-controller="Home" asp-action="MyOrder" class="nav-link">@localizer["MyOrders"]</a>
+                                </li>
+                                <li class="navbar-item">
+                                    <a asp-area="" asp-controller="Baskets" asp-action="Index" class="nav-link">@localizer["MyBasket"]</a>
+                                </li>
+                                <li class="navbar-item">
+                                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button type="submit" class="nav-link btn btn-link text-dark">@localizer["Exit"]</button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="navbar-item">
+                                    <a asp-area="Identity" asp-page="/Account/Register" class="nav-link">@localizer["Register"]</a>
+                                </li>
+                                <li class="navbar-item">
+                                    <a asp-area="Identity" asp-page="/Account/Login" class="nav-link">@localizer["LogIn"]</a>
+                                </li>
+                            }
+                        </ul>
+                        @*<div class="cart my-2 my-lg-0">
+                                <span>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </span>
+                                <span class="quntity">3</span>
+                            </div>*@
+                        <form id="searchForm" onsubmit="return checkSearchForm()" asp-controller="Home" asp-action="SearchBooks" class="form-inline my-2 my-lg-0" method="get" onSubmit="return checkform()">
+                            <input id="txtSearchItem" class="form-control mr-sm-2" name="searchItem" type="search" placeholder="@localizer["Search"]" aria-label="Search">
+                            <a class="fa fa-search" href="javascript:{}" onclick="checkSearchForm()"></a>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="address">
+                        <h4>@localizer["Address"]</h4>
+                        <h6>
+                            @localizer["Address2"]
+                        </h6>
+                        <h6>@localizer["Phone"]</h6>
+                        <h6>@localizer["Email"]</h6>
+                    </div>
+                    <div class="timing">
+                        <h4>@localizer["WorkingHours"]</h4>
+                        <h6>@localizer["WorkingHours2"]</h6>
+                        <h6>​​@localizer["WorkingHours3"]</h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="navigation">
+                        <h4>@localizer["Pages"]</h4>
+                        <ul>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">@localizer["MainPage"]</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Privacy" class="nav-link">@localizer["Privacy"]</a></li>
+                        </ul>
+                    </div>
+                    <div class="navigation">
+                        <h4>@localizer["Help"]</h4>
+                        <ul>
+                            <li><a href="faq.html">@localizer["FrequentlyAskedQuestions"]</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form">
+                        <h3>@localizer["ContactUs"]</h3>
+                        <h6>
+                            @localizer["Message"]
+                        </h6>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input placeholder="@localizer["Name"]" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" placeholder="@localizer["email1"]" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea placeholder="@localizer["Message1"]"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="btn black">@localizer["Send"]</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>@localizer["AllRightsReserved"]</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="share align-middle">
+                            <span class="fb"><i class="fa fa-facebook-official"></i></span>
+                            <span class="instagram"><i class="fa fa-instagram"></i></span>
+                            <span class="twitter"><i class="fa fa-twitter"></i></span>
+                            <span class="pinterest"><i class="fa fa-pinterest"></i></span>
+                            <span class="google"><i class="fa fa-google-plus"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div style="display:none" id="currentCalture">@currentCulture</div>
+    <script type="text/javascript" src="~/js/datatable-turkish.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

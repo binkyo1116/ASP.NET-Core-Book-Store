@@ -1,0 +1,50 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model BookstoreProject.Models.Language
+
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+<div class="container">
+    @if (Model.Active == true)
+    {
+        <h3>@localizer["ConvertToDeactive"]</h3>
+    }
+    else
+    {
+        <h3>@localizer["ConvertToActive"]</h3>
+    }
+
+    <hr />
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+        </dl>
+        <div class="row">
+            <div class="col-md-3">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    @if (Model.Active == true)
+                    {
+                        <input type="submit" value="@localizer["DeactivateButton"]" class="btn btn-block btn-danger" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="@localizer["ActivateButton"]" class="btn btn-block btn-danger" />
+                    }
+                </form>
+            </div>
+            <div class="col-md-3">
+                <form asp-action="Index">
+                    <div class="form-group">
+                        <input type="submit" value="@localizer["GoBackToList"]" class="btn btn-block btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

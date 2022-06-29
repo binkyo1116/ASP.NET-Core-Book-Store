@@ -1,0 +1,33 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model IEnumerable<Book>
+
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+
+<section class="static about-sec">
+    <div class="container">
+        <h2>@localizer["Title"]</h2>
+        <div class="recent-book-sec">
+            <div class="row">
+                @if (Model.Any())
+                {
+                    @foreach (var _kitap in Model)
+                    {
+                        <div class="col-md-3">
+                            <div class="item">
+                                <img src="~/images/@_kitap.MainPhoto" class="img" />
+                                <h3><a asp-controller="Home" asp-action="BookDetails" asp-route-searchId="@_kitap.Id">@_kitap.Name</a></h3>
+                                <h6><span class="price">@_kitap.Price @localizer["Currency"]</span> / <a asp-controller="Home" asp-action="BookDetails" asp-route-searchId="@_kitap.Id">@localizer["Buy"]</a></h6>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p style="margin-left:50px;">@localizer["NoBook"]</p>
+                }
+            </div>
+        </div>
+    </div>
+</section>

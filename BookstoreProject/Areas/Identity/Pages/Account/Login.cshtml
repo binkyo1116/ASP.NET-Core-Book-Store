@@ -1,0 +1,39 @@
+﻿@page
+@model LoginModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+
+<section class="static about-sec">
+    <div class="container">
+        <h1>@localizer["Title"]</h1>
+        <p>@localizer["Slogan"]</p>
+        <div class="form">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <form id="account" method="post">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-5">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-8 col-md-12">
+                        <button type="submit" class="btn btn-primary">@localizer["Title"]</button>
+                        <h5>@localizer["NoRegister"] <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">@localizer["Register"]</a></h5>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

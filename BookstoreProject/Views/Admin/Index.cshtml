@@ -1,0 +1,49 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+
+<div class="container">
+    <div class="row">
+        <div class=" col-md-6">
+            <form asp-controller="Books" asp-action="Index">
+                <div class="form-group">
+                    <input type="submit" value="@localizer["BookList"]" class="btn btn-block btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class=" col-md-6">
+            <form asp-controller="Authors" asp-action="Index">
+                <div class="form-group">
+                    <input type="submit" value="@localizer["AuthorList"]" class="btn btn-block btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-md-6">
+            <form asp-controller="Categories" asp-action="Index">
+                <div class="form-group">
+                    <input type="submit" value="@localizer["CategoryList"]" class="btn btn-block btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class=" col-md-6">
+            <form asp-controller="Languages" asp-action="Index">
+                <div class="form-group">
+                    <input type="submit" value="@localizer["LanguageList"]" class="btn btn-block btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-md-6">
+            <form asp-controller="Admin" asp-action="OrderList">
+                <div class="form-group">
+                    <input type="submit" value="@localizer["PendingOrders"]" class="btn btn-block btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

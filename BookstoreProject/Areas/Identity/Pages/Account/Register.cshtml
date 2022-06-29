@@ -1,0 +1,54 @@
+﻿@page
+@model RegisterModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@{
+    ViewData["Title"] = localizer["Title"].Value;
+}
+
+<section class="static about-sec">
+    <div class="container">
+        <h1>@localizer["Title"]</h1>
+        <p>@localizer["Slogan"]</p>
+        <div class="form">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <label asp-for="Input.Ad"></label>
+                        <input asp-for="Input.Ad" class="form-control" />
+                        <span asp-validation-for="Input.Ad" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Input.Soyad"></label>
+                        <input asp-for="Input.Soyad" class="form-control" />
+                        <span asp-validation-for="Input.Soyad" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Input.ConfirmPassword"></label>
+                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-lg-8 col-md-12">
+                        <button type="submit" class="btn btn-primary">@localizer["Title"]</button>
+                        <h5>@localizer["AlreadyRegister"] <a asp-area="Identity" asp-page="/Account/Login">@localizer["Login"]</a></h5>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
