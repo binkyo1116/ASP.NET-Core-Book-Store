@@ -32,10 +32,3 @@ Open the project folder and run the entity framework update command in the CLI.
   <img src="https://user-images.githubusercontent.com/44683436/129567526-e7a84bbc-3ea6-48c6-8f27-4fa312f0004f.png" width="400px;" alt=""/>
 </div>
 
-## 🎯 Contributors
-<table>
-  <tr>
-    <td align="center"><a href="https://www.linkedin.com/in/burakyazan/"><img src="https://avatars.githubusercontent.com/u/44683436?v=4s=100" width="100px;" alt=""/><br /><sub><b>Burak Yazan</b></sub></a><br /></td>
-    <td align="center"><a href="https://www.linkedin.com/in/%C5%9Fule-akta%C5%9F-4b681319b/"><img src="https://avatars.githubusercontent.com/u/64965733?v=4s=100" width="100px;" alt=""/><br /><sub><b>Şule Aktaş</b></sub></a><br /></td>
-  </tr>
-</table>
